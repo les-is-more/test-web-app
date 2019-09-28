@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
   product-service:
@@ -7,4 +7,10 @@ services:
       - ./products:/usr/src/app
     ports:
       - 5001:80
+    # deploy:
+    #   restart-policy:
+    #     condition: on-failure
+    #     delay: 5s
+    #     max_attempts: 3
+    #     window: 120s
 

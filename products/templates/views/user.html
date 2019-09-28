@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block title %} {{ name }} {% endblock %}
+{% block content %}
+    <div class="container"> 
+        <h1>Hi, {{name | capitalize}}</h1>
+    </div>
+{% endblock %}
