@@ -1,19 +1,19 @@
-<html>
-    <head>
+{% extends 'bootstrap/base.html' %}
+{% block head %}
+    {{ super() }}
     <link href='../static/css.css' rel="stylesheet" type="text/css"> 
-    {% block head %}
-        <title>{% block title %}{% endblock %} - Lizzie App!</title> 
-    {% endblock %}
-
+    <title>{% block title %}{% endblock %} - Lizzie App!</title> 
     {% block scripts %}
+        {{ super() }}
     {% endblock %}
-</head>
-<body>
-    {% include 'views/navbar.html' %}
+{% endblock %}
 
+{% block content %}
+    {{ super() }}
+    {% include 'views/navbar.html' %}
     {% block page_content %}
     {% endblock %}
     
     {% include 'views/footer.html' %}
-</body>
-</html>
+
+{% endblock %}

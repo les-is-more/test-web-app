@@ -8,20 +8,38 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 from flask_sqlalchemy import SQLAlchemy
+
+from flask_nav import Nav
+from flask_nav.elements import Navbar, Subgroup, View, Link, Text, Separator
+
 # from customClass.models import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Chicken Noodle Soup'
 
+
 # This module will create instances for SQL Model and Moment
 db = SQLAlchemy(app)
 moment = Moment(app)
-bootstrap = Bootstrap(app)
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    def __repr__(self):
-        return '<User %r>' % self.usernname
+# Add bootstrap elements for the app
+Bootstrap(app)
+
+# Registering Navbar elements
+nav = Nav(app)
+nav.register_element('my_navbar', Navbar(
+    'Lizzie!',
+    View('Home','home'),
+    View('Login', 'login'),
+    View('About','about'),
+    Subgroup('Products',
+        View('List', 'product_list'))
+))
+
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     def __repr__(self):
+#         return '<User %r>' % self.usernname
 
 
 # Forms template
