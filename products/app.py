@@ -1,19 +1,62 @@
 from flask import Flask, abort, render_template, request, make_response, redirect
 from flask_moment import Moment
 from datetime import datetime
+from flask_wtf import FlaskForm
+from flask_bootstrap import Bootstrap
 
-# This module will 
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+
+from flask_sqlalchemy import SQLAlchemy
+# from customClass.models import *
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'Chicken Noodle Soup'
 
+# This module will create instances for SQL Model and Moment
+db = SQLAlchemy(app)
 moment = Moment(app)
+bootstrap = Bootstrap(app)
 
-@app.route('/')
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    def __repr__(self):
+        return '<User %r>' % self.usernname
+
+
+# Forms template
+class captureUserDetails(FlaskForm):
+
+    # def __init__(self,event):     
+    #     self.event = event
+    
+    # def Fields(self):
+    uid = StringField('Preferred User ID', validators=[DataRequired()])
+    pwd = StringField('Password',validators=[DataRequired()])
+        # if self.event == 'signup':
+    firstName = StringField('First Name',validators=[DataRequired()] )
+    lastName = StringField('Last Name',validators=[DataRequired()])
+        #     submit = SubmitField('Sign Up')
+        # else:
+    submit = SubmitField('Login')
+
+class SignInForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    # response = make_response('<h1> This document carries cookies. </h1>')
-    # response.set_cookie('answer', '42')
-    # return response
-    # user_agent = request.headers.get('User-Agent')
-    return render_template("views/index.html", current_time=datetime.utcnow())
+    return render_template("views/index.html", 
+        current_time=datetime.utcnow())
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    # name= None
+    captureForm = captureUserDetails()
+    # if loginForm.validate_on_submit():
+    #     loginForm.name.Data = ''
+    return render_template("views/loginORsignup.html", 
+        form=captureForm,
+        current_time=datetime.utcnow())
 
 @app.route('/products')
 def product_list():
@@ -32,6 +75,7 @@ def about():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('error/404.html'), 404
+
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 80, debug = True)

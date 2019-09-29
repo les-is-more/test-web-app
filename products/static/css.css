@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Josefin Sans' ;
+    src :   url(fonts/JosefinSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Raleway' ;
+    src :   url(fonts/Raleway-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat' ;
+    src :   url(fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Prototype' ;
+    src :   url(fonts/Prototype.ttf);
+}
+
+div.container {
+    background-color: white;
+    font-family: 'Raleway';
+    margin: 0px;
+}
+/* margin setting */
+h1, h2,h3,p {
+    margin: 0px;
+}
+
+
+.container.form.login {
+    background-color : whitesmoke;
+}
+p.fineprint {
+    font-size: 20%
+}

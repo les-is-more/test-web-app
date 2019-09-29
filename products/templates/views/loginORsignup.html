@@ -1,0 +1,11 @@
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends "layout.html" %}
+{% block title %} Login {% endblock %}
+{% block page_content %}
+    <div class="container form login">
+        <form method='POST'>
+            {{ wtf.quick_form(form) }}
+        </form>
+    </div>
+{% endblock %}
