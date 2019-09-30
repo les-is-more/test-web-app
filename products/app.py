@@ -32,10 +32,10 @@ nav.register_element('my_navbar', Navbar(
     View('Home','home'),
     View('Login', 'login'),
     View('About','about'),
-    Subgroup('Products',
-        View('List', 'product_list'))
+    Subgroup('Product',View("Product", 'products'),
+        View('List', 'product_list')),
+    View('You', 'user',name="migs")
 ))
-
 # class User(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     def __repr__(self):
@@ -77,6 +77,10 @@ def login():
         current_time=datetime.utcnow())
 
 @app.route('/products')
+def products():
+    return render_template('views/products.html')
+
+@app.route('/product/list')
 def product_list():
     return {
         'product' :  ['Ice Cream', 'Chocolate', 'Fruit','Mango']
@@ -96,4 +100,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 80, debug = True)
+    app.run(ssl_context=('certs/cert.pem','certs/key.pem'),host = '0.0.0.0', port = 80, debug = True)

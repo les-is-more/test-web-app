@@ -5,3 +5,4 @@ flask_wtf           ==0.14.2
 flask_sqlalchemy    ==2.4.1
 flask_bootstrap     ==3.3.7.1
 flask_nav           ==0.6
+pyopenssl           ==19.0.0
