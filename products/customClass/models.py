@@ -4,6 +4,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+class :
+
 class User(Base):
     __tablename__ = 'users'
 
@@ -14,7 +16,5 @@ class User(Base):
 
     def __repr__(self):
         return "<User(name='%s', fullName='%s', nickName='%s')>" % (self.name,self.fullName,self.nickName)
+    
 
-
-ed_user = User(name='Lester')
-print(ed_user)
