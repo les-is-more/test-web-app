@@ -7,6 +7,7 @@ from flask_bootstrap import Bootstrap
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
+# This creates the SQL ORM feature of the app
 from flask_sqlalchemy import SQLAlchemy
 
 from flask_nav import Nav
