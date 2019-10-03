@@ -2,7 +2,7 @@ from flask import Flask, abort, render_template, request, make_response, redirec
 from flask_moment import Moment
 from datetime import datetime
 from flask_wtf import FlaskForm
-from flask_bootstrap import Bootstrap
+# from flask_bootstrap import Bootstrap
 
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
@@ -24,28 +24,21 @@ db = SQLAlchemy(app)
 moment = Moment(app)
 
 # Add bootstrap elements for the app
-Bootstrap(app)
 
-# Registering Navbar elements
-nav = Nav(app)
-nav.register_element('my_navbar', Navbar(
-    'Lizzie!',
-    View('Home','home'),
-    View('Login', 'login'),
-    View('About','about'),
-    Subgroup('Product',View("Product", 'products'),
-        View('List', 'product_list')),
-    View('You', 'user',name="migs")
-))
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     def __repr__(self):
-#         return '<User %r>' % self.usernname
-
+# # Registering Navbar elements
+# nav = Nav(app)
+# nav.register_element('my_navbar', Navbar(
+#     'Lizzie!',
+#     View('Home','home'),
+#     View('Login', 'login'),
+#     View('About','about'),
+#     Subgroup('Product',View("Product", 'products'),
+#         View('List', 'product_list')),
+#     View('You', 'user',name="migs")
+# ))
 
 # Forms template
 class captureUserDetails(FlaskForm):
-
     # def __init__(self,event):     
     #     self.event = event
     
@@ -64,8 +57,7 @@ class SignInForm(FlaskForm):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template("views/index.html", 
-        current_time=datetime.utcnow())
+    return render_template("views/landing.html")
 
 @app.route('/login', methods=['GET','POST'])
 def login():

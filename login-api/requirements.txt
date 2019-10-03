@@ -1,0 +1,7 @@
+pip                 ==19.2.3
+flask               ==1.1.1
+Flask-Restful       ==0.3.7
+flask_sqlalchemy    ==2.4.1
+connexion           ==2.3.0
+swagger-ui-bundle   ==0.0.5
+pymysql             ==0.9.3

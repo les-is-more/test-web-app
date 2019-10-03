@@ -1,0 +1,23 @@
+{% extends "layout.html"%}
+{% import "macros.html" as macros %}
+
+{% block title %} Home - Lizzie {% endblock %}
+
+{% block page_content %}
+    <div class="landing-header-container">
+        <div class='landing-header-item'>
+            <p class="font-50p font-raleway font-col-white">Welcome to Lizzie!</p> 
+        </div>
+        <div class='landing-header-item'>
+            <p class="font-10p font-raleway font-col-white">This is a test subtitle.</p> 
+        </div>
+    </div>
+    <div class="landing-button-parent">
+        <div class="landing-button-item button-purple"><a href='/login'>Login</a> </div>
+        <div class="landing-button-item button-purple"><a href='/signup'>Sign Up</a> </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include "views/footer.html" %}
+{% endblock %}

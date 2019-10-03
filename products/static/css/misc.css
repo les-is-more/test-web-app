@@ -1,0 +1,22 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Raleway';
+    text-emphasis-color: none;
+}
+
+a:link, a:active, a:visited {
+    color: white;
+}
+
+.bg-color-black {
+    background-color: black;
+}
+
+.bg-color-white {
+    background-color: white;
+}

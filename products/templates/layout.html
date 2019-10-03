@@ -1,19 +1,22 @@
-{% extends 'bootstrap/base.html' %}
-{% block head %}
-    {{ super() }}
-    <link href='../static/css.css' rel="stylesheet" type="text/css"> 
-    <title>{% block title %}{% endblock %} - Lizzie App!</title> 
-    {% block scripts %}
-        {{ super() }}
-    {% endblock %}
-{% endblock %}
+<html>
+    <head>
+        {% block head %}
+            <link href='../static/css/css.css' rel="stylesheet" type="text/css"> 
+            <title>{% block title %}{% endblock %} - Lizzie App!</title> 
+        
+            {% block scripts %}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block content %}
+            {% block nav %}
+                {% include "views/nav.html" %}
+            {% endblock %}
 
-{% block content %}
-    {{ super() }}
-    {% include 'views/navbar.html' %}
-    {% block page_content %}
-    {% endblock %}
-    
-    {% include 'views/footer.html' %}
-
-{% endblock %}
+            {% block page_content %}{% endblock %}
+            {% block footer %}
+                {% include "views/footer.html" %}
+            {% endblock %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,11 @@
+
+.button-purple {
+    background-image:  linear-gradient(to bottom right, #FAD961, #F76B1C);
+    color: black;
+}
+
+.button-purple:hover {
+    background-image: none;
+    background-color: #FAD961;
+    color: #FAD961;
+}
