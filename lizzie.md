@@ -12,8 +12,9 @@ More text
 ### Features
 
 Test Features
-    - Minimum
-    - Maximum
+
+* Minimum
+* Maximum
 
 
 ## Sub Domain 1
