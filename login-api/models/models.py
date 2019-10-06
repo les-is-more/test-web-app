@@ -1,6 +1,7 @@
 from db import Base
 from sqlalchemy import Column, Integer, String
 
+
 class User(Base):
     __tablename__ = 'user_info'
     idx = Column(Integer,primary_key=True)
@@ -11,6 +12,4 @@ class User(Base):
         self.firstName = firstName
 
     # This __repr__ attrib is optional
-    def __repr__(self):
-        return "<User {}>".format(self.idx)
 

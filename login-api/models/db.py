@@ -4,11 +4,10 @@ from sqlalchemy.ext.declarative import declarative_base
 
 
 login = { 'UID': 'diapox',
-    'PW':'Priest!1',
+    'PW':'Priest.1',
     'server': 'lizzie.cvqr1dhfa9aq.ap-southeast-1.rds.amazonaws.com',
     'db':'lizzie'}
-# To resolve the issue of misisng MySQLDB module in Flask ORM, make sure
-
+# To resolve the issue of misisng MySQLDB module in Flask ORM, make sure 
 # to include PyMYSQL in the requirements and in the URI.
 serverURI =  "mysql+pymysql://{}:{}@{}/{}".format(login['UID'],login['PW'], login['server'],login['db'])
 

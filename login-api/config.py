@@ -1,9 +1,11 @@
 from flask import render_template
 import connexion
-import people
-
+from models.db import engine
+from models.models import User
 
 # For user_info table 
+users = User()
+
 
 con = engine.connect()
 con.execute(users.insert(),idx=12345698, firstName='Migs Andrada')
