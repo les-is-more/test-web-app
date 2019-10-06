@@ -23,7 +23,9 @@ Another non-sense text
 
 #### Features 2
  
- Non-sense text for Feature 2
+
+
+ Non-sense text for Feature 2 in `python`
 
  ``` python
 import db
